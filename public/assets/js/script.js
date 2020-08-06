@@ -1,0 +1,1 @@
+this is going to be our public assets js file. we are going to populate this file with a onclock method used by jquery. we are going to use a put method that takes the value of the on submit button and creates an id to a url 

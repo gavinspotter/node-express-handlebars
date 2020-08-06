@@ -1,0 +1,26 @@
+// we are going to start by requiring express
+
+var express = require("express");
+
+var PORT = process.env.PORT || 8000;
+var app = express();
+
+// Serve static content for the app from the "public" directory in the application directory.
+app.use(express.static("public"));
+
+// Parse application body
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+var expresshb = require("express-handlebars");
+
+app.engine("handlebars", expresshb({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
+var routes = require("./controllers/burgersController.js");
+
+app.use(routes);
+
+app.listen(PORT, function () {
+  console.log("Listening on port", PORT);
+});
